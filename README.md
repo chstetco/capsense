@@ -4,6 +4,8 @@
 
 The framework allows simulation of capacitive proximity sensors with different configuration parameters in different scenarios embedded in robot simulators such as *(i)* CoppeliaSim, *(ii)* Unity3D and *(iii*) PyBullet.
 
+## More detailed documentation coming soon!
+
 ## Main features
 
 * Generation of capacitive proximity sensor **raw data** in real-time
