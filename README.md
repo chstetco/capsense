@@ -16,3 +16,7 @@ A paper describing **CapSense** has been accepted to the IEEE Robotics and Autom
 **NOTE:** We are continuosly working to improve and expand the CapSense framework. 
 
 
+<img src="https://www.aau.at/wp-content/uploads/2021/02/efrelogo.png" width="350" height="75" />        
+
+![alt text](https://www.aau.at/wp-content/uploads/2021/02/KWF_FE_pos-aubergine-120x120.png)
+
