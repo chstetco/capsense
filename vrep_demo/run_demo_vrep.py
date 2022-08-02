@@ -17,7 +17,7 @@ import time
 
 # connect to CoppeliaSim
 sim.simxFinish(-1)
-clientID = sim.simxStart('127.0.0.1', 19999, True, True, 5000, 5)
+clientID = sim.simxStart('127.0.0.1', 19997, True, True, 5000, 5)
 
 data = spio.loadmat('mesh_data_stripe_electrodes.mat', squeeze_me=True)
 
@@ -67,7 +67,7 @@ if clientID != -1:
     
     _, visionHandler = sim.simxGetObjectHandle(clientID, 'cap', sim.simx_opmode_blocking)
     
-    for kk in range(100):
+    for kk in range(100000):
 
       _, _, depthImage = sim.simxGetVisionSensorDepthBuffer(clientID, visionHandler, sim.simx_opmode_blocking)
       _, _, rgbImage = sim.simxGetVisionSensorImage(clientID, visionHandler, 0, sim.simx_opmode_blocking)
@@ -84,20 +84,3 @@ if clientID != -1:
       cap.meshMasking()            
       cap.solveSystem(K1, B1)
       toc = time.time()
-
-      print("Runtime: %d\n", toc-tic)
-
-     #plt.imshow(np.reshape(depthImage,(256,256)))
-     # plt.show()
-
-      #fig = plt.figure()
-      #ax = fig.add_subplot(projection='3d')
-      #ax.scatter(cap.centroids[cap.elements,0], cap.centroids[cap.elements,1], cap.centroids[cap.elements,2])
-
-      #ax.set_xlim(0,50)
-      #ax.set_ylim(0,50)
-      #ax.set_zlim(0,50)
-      #plt.set_xlabel('Time')
-      #plt.set_ylabel('Capacitance (F)')
-      #ax.set_zlabel('Z Label')
-      #plt.show()
