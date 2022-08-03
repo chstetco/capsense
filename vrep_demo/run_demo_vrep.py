@@ -67,10 +67,13 @@ if clientID != -1:
     
     _, visionHandler = sim.simxGetObjectHandle(clientID, 'cap', sim.simx_opmode_blocking)
     
-    for kk in range(100000):
+    for kk in range(1000):
 
       _, _, depthImage = sim.simxGetVisionSensorDepthBuffer(clientID, visionHandler, sim.simx_opmode_blocking)
       _, _, rgbImage = sim.simxGetVisionSensorImage(clientID, visionHandler, 0, sim.simx_opmode_blocking)
+      
+      #plt.imshow(depthImage)
+      #plt.show()
       
       depthImage = np.array(depthImage)
       depthImage = depthImage * max_distance
@@ -83,4 +86,5 @@ if clientID != -1:
       tic = time.time()
       cap.meshMasking()            
       cap.solveSystem(K1, B1)
+      print(cap.C)
       toc = time.time()
