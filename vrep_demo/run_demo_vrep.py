@@ -60,16 +60,24 @@ if clientID != -1:
       _, _, depthImage = sim.simxGetVisionSensorDepthBuffer(clientID, visionHandler, sim.simx_opmode_blocking)
       _, _, rgbImage = sim.simxGetVisionSensorImage(clientID, visionHandler, 0, sim.simx_opmode_blocking)
       
-      depthImage = np.array(depthImage)
-      depthImage = depthImage * max_distance
-      rgbImage = 80 * np.ones((32, 32, 4)) 
       
-      cap.depth_data = depthImage
+      print(cap.matval)
+      
+      
+      #plt.imshow(np.reshape(rgbImage,(32,32,3)))
+      #plt.show()
+      
+      depthImage = np.array(depthImage)
+      #depthImage = depthImage * max_distance
+      rgbImage = np.array(rgbImage)
+      #rgbImage = 80 * np.ones((32, 32, 4)) 
+      
+      #cap.depth_data = depthImage
 
-      cap.rgb_data = rgbImage
+      #cap.rgb_data = rgbImage
 
-      tic = time.time()
+      #tic = time.time()
       cap.meshMasking()            
       cap.solveSystem(K1, B1)
-      print(cap.C)
-      toc = time.time()
+      #print(cap.C)
+      #toc = time.time()
